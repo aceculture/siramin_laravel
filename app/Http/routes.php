@@ -19,6 +19,8 @@ Route::get('login', 'UserController@getAllUser');
 Route::post('signup', 'UserController@signUpNewUser');
 Route::post('user', 'UserController@getAvailableAccess');
 
+Route::get('{device_token}', 'DeviceController@getAllDevice');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

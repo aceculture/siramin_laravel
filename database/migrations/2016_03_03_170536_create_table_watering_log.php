@@ -14,9 +14,8 @@ class CreateTableWateringLog extends Migration
     {
         Schema::create('watering_log', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('device_token');
-            $table->integer('port_number', false, false);
-            $table->timestamps('created_at');
+            $table->string('port_id');
+            $table->timestamps();
         });
     }
 

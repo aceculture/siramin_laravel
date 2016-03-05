@@ -15,10 +15,9 @@ class CreateSensorTable extends Migration
         Schema::create('sensor_log', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('device_id');
+            $table->integer('port_id');
             $table->integer('moisture', false, false);
             $table->integer('temperature', false, false);
-            $table->integer('port_number', false, false);
         });
     }
 

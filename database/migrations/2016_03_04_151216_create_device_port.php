@@ -23,6 +23,8 @@ class CreateDevicePort extends Migration
             $table->enum('watering_method', ['semi', 'otomasi']);
             $table->string('location');
             $table->integer('current_moisture', false, false);
+            $table->integer('current_temperature', false, false);
+            $table->datetime('last_watering', false, false);
         });
     }
 

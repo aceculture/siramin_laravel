@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Model\Log\Watering;
+use App\Model\Device\DevicePort;
+
 class WateringLogTableSeeder extends Seeder
 {
     /**
@@ -11,69 +14,22 @@ class WateringLogTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi',
-            'port_number' => 1
-        ]);
+        // Each port in device have 2 data
+        // First data
+        for ($i=1; $i <= 10; $i++) {
+            Watering::create([
+                'port_id' => $i
+            ]);
+        }
+        // Second data
+        for ($i=1; $i <= 10; $i++) {
+            Watering::create([
+                'port_id' => $i
+            ]);
 
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi',
-            'port_number' => 2
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi',
-            'port_number' => 3
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi',
-            'port_number' => 4
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi',
-            'port_number' => 5
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi2',
-            'port_number' => 1
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi2',
-            'port_number' => 2
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi2',
-            'port_number' => 3
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi2',
-            'port_number' => 4
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi2',
-            'port_number' => 5
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi2',
-            'port_number' => 5
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi',
-            'port_number' => 1
-        ]);
-
-        DB::table('watering_log')->insert([
-            'device_token' => 'lampu_pi',
-            'port_number' => 1
-        ]);
+            $p = DevicePort::find($i);
+            $p->last_watering = Carbon\Carbon::now();
+            $p->save();
+        }
     }
 }

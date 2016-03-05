@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Model\Device\DevicePort;
+
 class DevicePortTableSeeder extends Seeder
 {
     /**
@@ -11,7 +13,7 @@ class DevicePortTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi',
             'port_number'   => 1,
             'status'        => 0,
@@ -19,10 +21,12 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
 
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi',
             'port_number'   => 2,
             'status'        => 0,
@@ -30,10 +34,12 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
 
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi',
             'port_number'   => 3,
             'status'        => 0,
@@ -41,10 +47,12 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
 
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi',
             'port_number'   => 4,
             'status'        => 0,
@@ -52,10 +60,12 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
 
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi',
             'port_number'   => 5,
             'status'        => 0,
@@ -63,10 +73,12 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
 
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi2',
             'port_number'   => 1,
             'status'        => 0,
@@ -74,10 +86,12 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
 
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi2',
             'port_number'   => 2,
             'status'        => 0,
@@ -85,10 +99,12 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
 
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi2',
             'port_number'   => 3,
             'status'        => 0,
@@ -96,10 +112,12 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
 
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi2',
             'port_number'   => 4,
             'status'        => 0,
@@ -107,10 +125,12 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
 
-        DB::table('device_port')->insert([
+        DevicePort::create([
             'device_token'  => 'lampu_pi2',
             'port_number'   => 5,
             'status'        => 0,
@@ -118,7 +138,9 @@ class DevicePortTableSeeder extends Seeder
             'moisture_threshold' => 60,
             'watering_method' => 'semi',
             'location'      => 'Halaman Depan',
-            'current_moisture' => 65
+            'current_moisture' => 65,
+            'updated_at' => Carbon\Carbon::now(),
+            'created_at' => Carbon\Carbon::now()
         ]);
     }
 }

@@ -7,12 +7,32 @@ use Illuminate\Database\Eloquent\Model;
 class DevicePort extends Model
 {
     protected $table = 'device_port';
+    //
+    public function device()
+    {
+        return $this->belongsTo('App\Model\Device\Device', 'device_token', 'device_token');
+    }
 
-    protected $timestamps = true;
+    /**
+     * one port from one device, belongs to single user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\Model\User', 'user_id', 'user_id');
+    }
 
-    protected $dateFormat = 'U';
+    /**
+     * Logging
+     */
+    public function wateringLogs()
+    {
+        return $this->hasMany('App\Model\Log\Watering', 'port_id', 'id');
+    }
 
-    public function belongsToDevice(){
-        return $this->belongsTo('\App\Model\Device\Device', 'device_token', 'device_token');
+    public function sensorLog()
+    {
+        return $this->hasMany('App\Model\Log\Sensor', 'port_id', 'id');
     }
 }

@@ -12,10 +12,6 @@ class Device extends Model
 
     protected $dateFormat = 'U';
 
-    public function userDevicePort(){
-        return $this->hasMany('\App\Model\Device\UserDevice', 'device_token', 'device_token');
-    }
-
     public function devicePortDetail(){
         return $this->hasMany('\App\Model\Device\DevicePort', 'device_token', 'device_token');
     }

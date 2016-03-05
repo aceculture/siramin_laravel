@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sensor extends Model
 {
+    protected $table = 'sensor_log';
     //
     public function port()
     {
