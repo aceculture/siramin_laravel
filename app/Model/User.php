@@ -2,14 +2,41 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
+    protected $table = 'users';
+
+    protected $dateFormat = 'U';
+
     /**
-     * Many to many relationship
-     * User has many Port that they can control
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
+    protected $fillable = [
+        'user_id', 'name', 'email', 'password',
+    ];
+
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * one user can have many access to many device, many port
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    function deviceUser(){
+        return $this->hasMany('\App\UserDevice', 'user_id', 'user_id');
+    }
+
     public function ports()
     {
         return $this->belongsToMany('App\Model\Device\Port');

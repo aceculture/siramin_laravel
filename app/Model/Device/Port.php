@@ -6,15 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Port extends Model
 {
+    protected $table = 'user_device';
+
+    protected $dateFormat = 'U';
+
     //
     public function device()
     {
         return $this->belongsTo('App\Model\Device\Device');
     }
 
+    /**
+     * one port from one device, belongs to single user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function users()
     {
-        return $this->belongsToMany('App\Model\User');
+        return $this->belongsToMany('App\Model\User', 'user_id', 'user_id');
     }
 
     /**
