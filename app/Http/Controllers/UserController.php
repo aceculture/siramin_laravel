@@ -53,4 +53,18 @@ class UserController extends Controller
 
         echo json_encode($return_body);
     }
+
+    public function getAllUser()
+    {
+        $returnBody = User::select('user_id', 'name', 'password')
+            ->get()
+            ->toArray();
+
+        $response = [
+            'code' => 200,
+            'data' => $returnBody
+        ];
+
+        return response()->json($response);
+    }
 }
