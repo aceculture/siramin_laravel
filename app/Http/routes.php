@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('user', 'UserController@index');
+Route::post('user', 'UserController@getAvailableAccess');
 
 /*
 |--------------------------------------------------------------------------

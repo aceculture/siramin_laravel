@@ -15,8 +15,12 @@ class UserController extends Controller
 
     }
 
-    public function getAvailableAccess(){
-        $accesses = User::where('user_id', 'radityacandra')->first()->deviceUser;
+    public function getAvailableAccess(Request $request){
+
+        $content = $request->getContent();
+        $param = json_decode($content, true);
+
+        $accesses = User::where('user_id', $param['user_id'])->first()->deviceUser;
 
         $return_body = array();
         $counterPort = 0;
