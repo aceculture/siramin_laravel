@@ -12,63 +12,53 @@ class UserDeviceTableSeeder extends Seeder
     public function run()
     {
         DB::table('user_device')->insert([
-            'user_id'       => 'radityacandra',
-            'device_token'  => 'lampu_pi',
-            'port_number'   => 1
+            'user_id' => 'radityacandra',
+            'port_id' => 1
         ]);
 
         DB::table('user_device')->insert([
-            'user_id'       => 'radityacandra',
-            'device_token'  => 'lampu_pi',
-            'port_number'   => 3
+            'user_id' => 'radityacandra',
+            'port_id' => 3
         ]);
 
         DB::table('user_device')->insert([
-            'user_id'       => 'radityacandra',
-            'device_token'  => 'lampu_pi',
-            'port_number'   => 5
+            'user_id' => 'radityacandra',
+            'port_id' => 5
         ]);
 
         DB::table('user_device')->insert([
-            'user_id'       => 'agandhi',
-            'device_token'  => 'lampu_pi',
-            'port_number'   => 2
+            'user_id' => 'agandhi',
+            'port_id' => 2
         ]);
 
         DB::table('user_device')->insert([
-            'user_id'       => 'agandhi',
-            'device_token'  => 'lampu_pi',
-            'port_number'   => 4
+            'user_id' => 'agandhi',
+            'port_id' => 4
         ]);
 
         DB::table('user_device')->insert([
-            'user_id'       => 'agandhi',
-            'device_token'  => 'lampu_pi2',
-            'port_number'   => 1
+            'user_id' => 'agandhi',
+            'port_id' => 6
         ]);
 
         DB::table('user_device')->insert([
-            'user_id'       => 'agandhi',
-            'device_token'  => 'lampu_pi2',
-            'port_number'   => 3
+            'user_id' => 'agandhi',
+            'port_id' => 3
         ]);
 
         DB::table('user_device')->insert([
-            'user_id'       => 'agandhi',
-            'device_token'  => 'lampu_pi2',
-            'port_number'   => 5
+            'user_id' => 'agandhi',
+            'port_id' => 10
         ]);
 
         DB::table('user_device')->insert([
-            'user_id'       => 'radityacandra',
-            'device_token'  => 'lampu_pi2',
-            'port_number'   => 2
+            'user_id' => 'radityacandra',
+            'port_id' => 7
         ]);
 
         DB::table('user_device')->insert([
-            'user_id'       => 'radityacandra',
-            'device_token'  => 'lampu_pi2',
-            'port_number'   => 4
+            'user_id' => 'radityacandra',
+            'port_id' => 9
         ]);
     }
 }

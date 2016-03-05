@@ -16,8 +16,7 @@ class CreateTableUserDevice extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('user_id');
-            $table->string('device_token');
-            $table->integer('port_number', false, false);
+            $table->integer('port_id')->unsigned();
         });
     }
 
