@@ -21,16 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'user_id', 'name', 'email', 'password',
     ];
-
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
+    
     /**
      * one user can have many access to many device, many port
      *
