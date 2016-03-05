@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\User;
+
+class UserController extends Controller
+{
+
+    public function index(){
+        $users = User::get()->toArray();
+
+    }
+
+    public function getAvailableAccess(){
+        $accesses = User::where('user_id', 'radityacandra')->first()->deviceUser;
+
+        $return_body = array();
+        $counterPort = 0;
+        $counterDevice = 0;
+        foreach($accesses as $access){
+            if($counterDevice == 0){
+                $return_body[$counterDevice]['device_token'] = $access['device_token'];
+                $return_body[$counterDevice]['user_id'] = $access['user_id'];
+                $counterDevice++;
+            }
+
+            if($access['device_token'] != $return_body[$counterDevice-1]['device_token']){
+                $counterPort = 0;
+                $return_body[$counterDevice]['device_token'] = $access['device_token'];
+                $return_body[$counterDevice]['user_id'] = $access['user_id'];
+                $counterDevice++;
+            }
+
+            if($access['device_token'] == $return_body[$counterDevice-1]['device_token']){
+                $return_body[$counterDevice-1]['available_port'][$counterPort] =
+                    $access['port_number'];
+                $counterPort++;
+            }
+        }
+
+        $return_body = array(
+            'code' => 200,
+            'data' => $return_body
+        );
+
+        echo json_encode($return_body);
+    }
+}

@@ -6,13 +6,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    protected $table = 'users';
+
+    public $timestamps = true;
+
+    protected $dateFormat = 'U';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'user_id', 'name', 'email', 'password',
     ];
 
     /**
@@ -23,4 +30,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * one user can have many access to many device, many port
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    function deviceUser(){
+        return $this->hasMany('\App\UserDevice', 'user_id', 'user_id');
+    }
 }
