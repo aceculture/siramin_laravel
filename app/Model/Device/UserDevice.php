@@ -13,7 +13,7 @@ class UserDevice extends Model
     //
     public function device()
     {
-        return $this->belongsTo('App\Model\Device\Device');
+        return $this->belongsTo('App\Model\Device\Device', 'device_token', 'device_token');
     }
 
     /**
