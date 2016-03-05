@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login', 'UserController@getAllUser');
+
 Route::post('user', 'UserController@getAvailableAccess');
 
 /*
