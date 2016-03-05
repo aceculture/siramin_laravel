@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     function deviceUser(){
-        return $this->hasMany('\App\UserDevice', 'user_id', 'user_id');
+        return $this->hasMany('\App\Model\Device\UserDevice', 'user_id', 'user_id');
     }
 
     public function ports()

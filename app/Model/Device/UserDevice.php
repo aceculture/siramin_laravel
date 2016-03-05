@@ -4,7 +4,7 @@ namespace App\Model\Device;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Port extends Model
+class UserDevice extends Model
 {
     protected $table = 'user_device';
 
