@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class DevicePort extends Model
 {
     protected $table = 'device_port';
+
+    protected $appends = ['username'];
+
+    public function getUsernameAttribute()
+    {
+        return $this->users()->first()->user_id;
+    }
+
     //
     public function device()
     {
@@ -20,7 +28,7 @@ class DevicePort extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('App\Model\User', 'user_id', 'user_id');
+        return $this->belongsToMany('App\Model\User', 'user_device', 'port_id', 'user_id');
     }
 
     /**

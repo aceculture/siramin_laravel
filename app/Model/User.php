@@ -10,6 +10,11 @@ class User extends Authenticatable
 
     protected $dateFormat = 'U';
 
+    // Override default values because apparently we don't comply to Laravel
+    // convention :<
+    public $primaryKey = 'user_id';
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -30,6 +35,6 @@ class User extends Authenticatable
 
     public function ports()
     {
-        return $this->belongsToMany('App\Model\Device\Port');
+        return $this->belongsToMany('App\Model\Device\DevicePort', 'user_device', 'user_id', 'port_id');
     }
 }
