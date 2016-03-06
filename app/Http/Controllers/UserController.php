@@ -54,7 +54,7 @@ class UserController extends Controller
             'data' => $return_body
         );
 
-        echo json_encode($return_body);
+        return response()->json($return_body);
     }
 
     public function getAllUser()
@@ -131,6 +131,6 @@ class UserController extends Controller
             $return_array['data'] = array();
         }
 
-        echo json_encode($return_array);
+        return response()->json($return_array);
     }
 }

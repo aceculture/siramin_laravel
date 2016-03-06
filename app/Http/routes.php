@@ -18,8 +18,9 @@ Route::get('/', function () {
 Route::get('login', 'UserController@getAllUser');
 Route::post('signup', 'UserController@signUpNewUser');
 Route::post('user', 'UserController@getAvailableAccess');
+Route::post('sensor', 'SensorController@insertSensorLog');
 
-Route::post('{device_token}/sensor/{port_number}', 'SensorController@insertSensorLog');
+Route::get('{device_token}/sensor/{port_number}', 'SensorController@getSensorLog');
 Route::get('{device_token}', 'DeviceController@getAllDevice');
 
 /*

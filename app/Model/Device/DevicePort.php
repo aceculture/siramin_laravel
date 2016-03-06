@@ -12,7 +12,12 @@ class DevicePort extends Model
 
     public function getUsernameAttribute()
     {
-        return $this->users()->first()->user_id;
+        try{
+            return $this->users()->first()->user_id;
+        } catch (\Exception $e){
+            //there is no username for this port
+            //todo: handling this exception
+        }
     }
 
     //
