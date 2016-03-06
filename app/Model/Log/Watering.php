@@ -11,6 +11,6 @@ class Watering extends Model
     //
     public function port()
     {
-        return $this->belongsToMany('App\Model\Device\Port');
+        return $this->belongsTo('App\Model\Device\Port', 'port_id', 'id');
     }
 }
