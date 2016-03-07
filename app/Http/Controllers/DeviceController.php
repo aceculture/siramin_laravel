@@ -52,7 +52,7 @@ class DeviceController extends Controller
 
         if(isset($param['watering_method'])){
             if(in_array($param['watering_method'], ['semi', 'otomasi'], true)){
-                $port->watering_method = $param['status'];
+                $port->watering_method = $param['watering_method'];
                 $port->save();
 
                 $response['data'] = [];
