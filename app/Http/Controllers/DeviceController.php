@@ -20,7 +20,6 @@ class DeviceController extends Controller
             'data' => $returnBody
         ];
 
-        dd($response);
         return response()->json($response);
     }
 
@@ -39,7 +38,7 @@ class DeviceController extends Controller
         ];
 
         if (isset($param['status'])) {
-            if (in_array($param['status'], ['semi', 'otomatis'], true)) {
+            if (in_array($param['status'], ['semi', 'otomasi'], true)) {
                 $port->watering_method = $param['status'];
                 $port->save();
 
