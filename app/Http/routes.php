@@ -20,6 +20,7 @@ Route::post('signup', 'UserController@signUpNewUser');
 Route::post('user', 'UserController@getAvailableAccess');
 Route::post('report_watering', 'DeviceController@reportWatering');
 Route::post('sensor', 'SensorController@insertSensorLog');
+Route::get('comodity', 'ComodityController@getVegetableComodity');
 
 Route::get('{device_token}/sensor/{port_number}', 'SensorController@getSensorLog');
 Route::get('{device_token}', 'DeviceController@getAllDevice');
