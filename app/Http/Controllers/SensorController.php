@@ -13,11 +13,18 @@ class SensorController extends Controller
 {
     public function getSensorLog($device_token, $port_number){
         $result = DevicePort::where('device_token', $device_token)->where('port_number',
-                $port_number)->first()->sensorLog;
+                $port_number)->first()->sensorLog->reverse()->take(50);
+
+        $data = array();
+        $counter = 0;
+        foreach($result as $key=>$value){
+            $data[$counter] = $value;
+            $counter++;
+        }
 
         $body = array(
             'code' => 200,
-            'data' => $result
+            'data' => $data
         );
 
         return response()->json($body);

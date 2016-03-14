@@ -40,6 +40,7 @@ class DeviceController extends Controller
         if (isset($param['status'])) {
             if (in_array($param['status'], [0, 1], true)) {
                 $port->status = $param['status'];
+                $port->last_watering = \Carbon\Carbon::now();
                 $port->save();
 
                 $response['data'] = [];
